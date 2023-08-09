@@ -14,12 +14,10 @@ https://www.youtube.com/watch?v=b2JAx2kzs_g
   <img src="https://user-images.githubusercontent.com/79093184/259310145-eef27935-8a75-4cd2-8745-9b553bdc9948.png" align="center" width="35%">
   <img src="https://user-images.githubusercontent.com/79093184/259310151-c0403266-3aa2-42a9-9978-0ee1a50130fe.png" align="center" width="35%">
 </p>
-
 * * *
 #### ⚪ Built With
 * ##### template engine
 <img src="https://img.shields.io/badge/handlebars.js-3776AB?style=for-the-badge&logo=Handlebars.js&logoColor=white">
-
 * ##### backend
 <img src ="https://img.shields.io/badge/javascript-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=white"/> <img alt="express" src ="https://img.shields.io/badge/express-339933.svg?&style=for-the-badge&logo=express&logoColor=white"/> <img alt="nodedotjs" src ="https://img.shields.io/badge/nodejs-339933.svg?&style=for-the-badge&logo=nodedotjs&logoColor=white"/> <img alt="mongodb" src ="https://img.shields.io/badge/mongodb-339933.svg?&style=for-the-badge&logo=mongodb&logoColor=white"/>
 
@@ -60,7 +58,7 @@ npm start
 * ##### 이에 bcrypt 패키지를 통해 암호화 기능을 적용해 DB에 저장되는 비밀번호에 해쉬적용
 * ##### 비밀번호 인증시 해쉬 비교 수행후 인증 확인/거부
 * ##### 디렉토리 재구조화 MVC 패턴
-
+* ##### MongoDB 정규식 표현이 미숙해 댓글(post.comments)에 접근하는데 비동기호출을 2번사용함
 * * *
 #### ⚪ Writer
 * ##### <span>okqkrwhdtjd@gmail.com
