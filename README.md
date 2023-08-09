@@ -1,6 +1,7 @@
 # Board
 #### ⚪ About Project
 * ##### 패스워드 인증기반 글(작성, 수정, 삭제, 조회), 댓글(작성, 삭제)을 가진 게시판 서비스 앱
+* #####『Node.js 백엔드 개발자 되기』내 게시판 프로젝트의 기능(암호화 기능)과 오류 개선
 * ##### NodeJs, Express, MongoDB, 템플릿엔진인 express-handlebars를 사용해 게시판 서비스 앱 구축
 * * *
 #### ⚪ Usage
@@ -33,31 +34,32 @@ npm install
 npm start
 ```
 * * *
-#### ⚪ Description 
-* ##### User
-    * ##### 세션 인증 방식을 이용한 사용자 인증 + 로그인, 로그아웃, 회원가입, NAVBAR에서 사용자 이름, 프로필 사진 출력
-    * ##### react-hook을 이용한 커스텀 유효성검증 로그인, 회원가입용 Form 객체 구현
-    * ##### react-router-dom 이용해 라우팅 구현, 삼항연산자 조건식을 사용해 사용자 인증시에만 서비스 이용가능하게 만듬
-* ##### Content
-   * ##### 넷플릭스의 슬라이드를 구현하기 위해 Movie를 타입 + 장르별로 배열로 만들어 저장
-   * ##### 프론트엔드에서 이중배열로 데이터가 API호출이 나와서 자식배열의 MovieId를 추출하는 로직 구현
-   * ##### 장르가 선택되지 않으면 셔플 알고리즘을 통해 가지고 있는 모든 영화를 무작위로 배열
-* ##### Movie
-    * ##### Movie 삭제, 작성, 수정
-    * ##### 캐러셀을 이용한 Movie 슬라이더 생성
+#### ⚪ Description
+* ##### express-handlebars: 자바스크립트 view 템플릿을 이용해 헬퍼 함수를 작성하고 이용
+* ##### Post
+   * ##### 게시글 작성시 비밀번호 해쉬 처리후 DB저장
+   * ##### 게시글 상세보기를 통해 게시물 정보(댓글, 작성자, 작성일자 등)확인
+   * ##### 게시글 수정, 삭제시 check-pasword API 을 통해 비인가적인 삭제 호출 막음
+* ##### Comment
+   * ##### DB의 Post에 배열 형식으로 Post DB에 존재 
+   * ##### 댓글 작성시 비밀번호 해쉬 처리후 Post DB destruct 후 저장
+   * ##### 댓글 삭제시 2중 쿼리사용 API를 통해 비밀번호 인증후 삭제
+* ##### List
+    * ##### 리스트에서 게시글 검색 및 페이지 네이션 api
+    * ##### 페이지네이션구현 -> utils/paginator.js 참조
 * ##### RESTAPI
-    * ##### USER: 회원가입, 로그인, 로그아웃, 인증정보가져오기, 삭제, 수정, 조회, 전체조회, 쿼리를 통한 월별 유저 가입수 통계
-    * ##### Content: 삭제, 생성, 쿼리(type & genre)를 통한 조회 기능
-    * ##### Movie: 생성, 삭제, 수정, 쿼리(type | name)을 통한 조회 기능
-    * ##### 자세한 내용은 postman, server/src/controllers, routes 주석 참조
+    * ##### Post: 게시글 생성, 삭제, 수정, 상세보기 기능
+    * ##### Comment: 댓글 삭제, 생성 기능
+    * ##### List: 홈페이지 요청처리 게시글 목록, 조회, 페이지네이션 기능
+    * ##### 자세한 내용은 app.js 주석 참조
 * * *
 #### ⚪ Roadmap & Realization & Study
-* ##### 포스트맨으로 API를 테스트하며 프로젝트 진행
-* ##### 프론트엔드를 아무 지식없이 하다보니 스파게티 코드를 만들고, 놓친부분이 많았음
-* ##### 예를들어 라우팅 관련 조건식에서 삼항연산자를 잘못쓰던가, 동일한 의미의 콜백함수 Props 사용이 생김
-* ##### useEffect를 너무 남발했고, 자식의 자식의 부모컴포넌트끼리 props를 공유할때 콜백함수를 2번 정의했음
-* ##### 이를 보완하기위해 Context에 대해 공부하고 다음 프로젝트에 적용예정
-* ##### 백엔드 개발에서 RESTAPI에 대한 표준을 봤는데 이해가 안가는점이 많음
+* ##### Node.js 백엔드 개발자 되기 chapter7의 프로젝트를 보고 따라함
+* ##### 자바스크립트 템플릿 엔진인 express-handlebars에 대해 실습
+* ##### 실습 프로젝트 내용에는 비밀번호 인증이지만 DB에 그대로 평문이 저장됨
+* ##### 이에 bcrypt 패키지를 통해 암호화 기능을 적용해 DB에 저장되는 비밀번호에 해쉬적용
+* ##### 비밀번호 인증시 해쉬 비교 수행후 인증 확인/거부
+* ##### 디렉토리 재구조화 MVC 패턴
 
 * * *
 #### ⚪ Writer
@@ -65,11 +67,13 @@ npm start
 * <a href = "https://github.com/MpqM"><img alt="GitHub" src ="https://img.shields.io/badge/GitHub-181717.svg?&style=for-the-badge&logo=GitHub&logoColor=white"/></a> <a href = "https://MpqM.tistory.com/"> <img alt="Tistory" src ="https://img.shields.io/badge/Tistory-white.svg?&style=for-the-badge"/></a>
 * * *
 #### ⚪ Contributing
-* ##### Fork the Project https://github.com/MpqM/WebApp_OTT
+* ##### Fork the Project https://github.com/MpqM/WebApp_Board
 * ##### Create your Feature Branch (git checkout -b feature/AmazingFeature)
 * ##### Commit your Changes (git commit -m 'Add some AmazingFeature')
 * ##### Push to the Branch (git push origin feature/AmazingFeature)
 * ##### Open a Pull Request
 * * *
 #### ⚪ Acknowledgments & License & reference
+https://github.com/wapj/jsbackend/tree/main/chapter7
+박승규,『Node.js 백엔드 개발자 되기』, GOLDENRABBIT, p234~293
 * * * *
