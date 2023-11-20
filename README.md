@@ -7,8 +7,6 @@
 - - -
 
 #### ⚪ Running Screen || Video
-
-
 <p align="center">
   <a href="https://www.youtube.com/watch?v=b2JAx2kzs_g"><img src ="https://img.shields.io/badge/youtube-FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"/></a>
   </br>
@@ -42,7 +40,6 @@ npm start
 - - -
 
 #### ⚪ Description
-* #### express-handlebars: 자바스크립트 view 템플릿을 이용해 헬퍼 함수를 작성하고 이용
 * #### Post
    * #### 게시글 작성시 비밀번호 해쉬 처리후 DB저장
    * #### 게시글 상세보기를 통해 게시물 정보(댓글, 작성자, 작성일자 등)확인
