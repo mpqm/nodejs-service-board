@@ -8,8 +8,10 @@
 
 #### ⚪ Running Screen || Video
 
-https://www.youtube.com/watch?v=b2JAx2kzs_g
+
 <p align="center">
+  <a href="https://www.youtube.com/watch?v=b2JAx2kzs_g"><img src ="https://img.shields.io/badge/youtube-FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white"/></a>
+  </br>
   <img src="https://user-images.githubusercontent.com/79093184/259310139-8e99ac09-9b99-4840-81bb-12ff315b98b0.png" align="center" width="35%">
   <img src="https://user-images.githubusercontent.com/79093184/259310159-58570160-da66-4e3f-9fbf-c0b6f7c4098d.png" align="center" width="35%">
 </p>
