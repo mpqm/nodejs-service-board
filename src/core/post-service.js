@@ -1,5 +1,5 @@
 const { ObjectId } = require("mongodb"); 
-const paginator = require("../utils/paginator");
+const paginator = require("./paginator");
 
 // 게시물 작성 함수
 async function writePost(collection, post) {

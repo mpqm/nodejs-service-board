@@ -1,12 +1,14 @@
 const express = require("express");
 const hbs = require("express-handlebars");
 const { ObjectId } = require("mongodb");
-const crypto = require("./utils/crypto")
-const mongodbConnection = require("./configs/mongodb-connection");
-const postService = require("./services/post-service");
+const crypto = require("./core/crypto")
+const mongodbConnection = require("./core/mongodb-connection");
+const postService = require("./core/post-service");
+const path = require('path');
 
 const app = express();
 const port = 3000
+const rootDir = path.resolve(process.cwd());
 let collection;
 
 // 서버 실행 및 MongoDB 연결
@@ -24,12 +26,15 @@ app.listen(port, async () => {
 });
 
 // Handlebars를 뷰 엔진으로 설정
-app.engine("hbs", hbs.create({ helpers: require("./configs/hbs-helpers"), }).engine);
+app.engine("hbs", hbs.create({ 
+    defaultLayout: "main",
+    layoutsDir: rootDir + "/view",
+    helpers: require("./core/hbs-helpers"), }).engine);
 app.set("view engine", "hbs");
-app.set("views", __dirname + "/views");
+app.set("views", rootDir + "/view");
 
 // 정적파일, JSON, URL-encoded 데이터 파싱
-app.use("/views/styles", express.static(__dirname + "/views/styles"));
+app.use("/views/styles", express.static(rootDir + "/view/css"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
