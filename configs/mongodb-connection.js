@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb'); 
 
 // MongoDB 클러스터 연결 URI
-const uri = "YOUR MONGODB CONNECTION STRING";
+const uri = "mongodb://root:qwer1234@localhost:27017/mydatabase?authSource=admin";
 
 // MongoDB 클라이언트 객체 생성
 const client = new MongoClient(uri);

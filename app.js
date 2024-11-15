@@ -13,7 +13,14 @@ let collection;
 app.listen(port, async () => {
     console.log("Server started on", port);
     const mongoClient = await mongodbConnection();
-    collection = mongoClient.db().collection("post");
+    const db = mongoClient.db();
+
+    // 'postCollection'이 존재하지 않으면 자동으로 생성
+    collection = await db.createCollection("post").catch(() => {
+        // 컬렉션이 이미 존재하는 경우 기존 컬렉션을 사용
+        return db.collection("post");
+    });
+    console.log("Connected to 'postCollection' collection.");
 });
 
 // Handlebars를 뷰 엔진으로 설정
